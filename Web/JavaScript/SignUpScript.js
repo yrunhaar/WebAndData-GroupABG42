@@ -22,7 +22,7 @@ function signup(){
 	password1 = document.getElementById("password1").value;
 	password2 = document.getElementById("password2").value;
 
-	if (firstname = null || surname = null || gender = null || email1 = null || email2 = null || password1 = null || password2 = null) {
+	if (firstname == null || surname == null || gender == null || email1 == null || email2 == null || password1 == null || password2 == null) {
 		alert("Please fill in everything");
 	}
 
