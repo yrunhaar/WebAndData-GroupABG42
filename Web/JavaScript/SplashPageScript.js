@@ -1,9 +1,10 @@
 function signin(){
 	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
+	var signinboolean = false;
 
-	if (false) {
-
+	if (signinboolean) {
+		window.location.href = "Tracker.html";
 	}
 	else{
 		alert("Email/Password combination doesn't exist.");
@@ -12,4 +13,8 @@ function signin(){
 
 function signup(){
 	window.location.href = "SignUp.html";
+}
+
+function forgotpass(){
+	
 }
