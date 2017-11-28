@@ -3,6 +3,7 @@
 	<head>
 		<title>Your Habits - Tracker</title>
 		<script src="JavaScript\TrackerScript.js"></script>
+	<!--	<link rel="stylesheet" href="CSS\TrackerCSS.css"> -->
 	</head>
 
 	<body>
@@ -15,50 +16,87 @@
  		</nav><br><br>
 
 
-		<h2>Habit Tracker</h2>
+		<h2>Habit Tracker</h2>	
 
 		<h3>Habits</h3>
+		<table id="HabitTable" style="width:100%">
+		  <tr>
+		  	<th>Name</th>
+		    <th>Description</th> 
+		    <th>Type</th>
+		    <th>Days</th>
+		  </tr>
+		</table><br><br>
+
 		<button id="newHabitbutton" onclick="newhabitmodal()">Add a habit</button>
-		<div id="myModal" class="modal">
+		<div id="modaladd" class="modal">
 			<div class="modal-content">
-	  			<span onclick="document.getElementById('myModal').style.display='none'" class="close" title="Close Modal">&times;</span>
-	  			<form class="modal-content animate" action="/action_page.php">
+	  			<span onclick="document.getElementById('modaladd').style.display='none'" class="close" title="Close Modal">&times;</span>
 	  			<div class="container">
-					Description:<input type="text" name="HabitDescription"><br><br>
-					Type :  <br><input type="radio" name="type" value="Positive"> Positive<br>
+	  				Name : <input type="text" id="HabitName"><br><br>
+					Description : <input type="text" id="HabitDescription" value=""><br><br>
+					Type :  
+							<br><input type="radio" name="type" value="Positive"> Positive<br>
 							<input type="radio" name="type" value="Negative"> Negative<br><br>		
-			  		Days : 	Monday<input type="checkbox" name="DaysHabit" 		id="Monday">
-							Tuesday<input type="checkbox" name="DaysHabit" id="Tuesday">
-							Wednesday<input type="checkbox" name="DaysHabit" id="Wednesday">
-							Thursday<input type="checkbox" name="DaysHabit" id="Thursday">
-							Friday<input type="checkbox" name="DaysHabit" id="Friday">
-							Saturday<input type="checkbox" name="DaysHabit" id="Saturday">
-							Sunday<input type="checkbox" name="DaysHabit" id="Sunday">
-				</div>	
-				<div class="clearfix"> 
-				<button type="button" onclick="document.getElementById('myModal').style.display='none'" class="cancelbtn">Cancel</button>
+			  		Days : 	
+			  				Monday<input type="checkbox" name="DaysHabit" value="Monday">
+							Tuesday<input type="checkbox" name="DaysHabit" value="Tuesday">
+							Wednesday<input type="checkbox" name="DaysHabit" value=Wednesday">
+							Thursday<input type="checkbox" name="DaysHabit" value="Thursday">
+							Friday<input type="checkbox" name="DaysHabit" value="Friday">
+							Saturday<input type="checkbox" name="DaysHabit" value="Saturday">
+							Sunday<input type="checkbox" name="DaysHabit" value="Sunday"><br><br>
+				<button type="button" onclick="document.getElementById('modaladd').style.display='none'" class="cancelbtn">Cancel</button>
     			<button type="button" onclick="newHabit()" class="signupbtn">Sign Up</button>
 				</div>
 			</div>
 		</div>
 
 		<h3>Manage Habits</h3>
-		<button>EDIT</button><br><br>
-		<button>DELETE</button><br><br>
+		<button id="newHabitbutton" onclick="edithabitmodal()">Edit a habit</button>
+		<div id="modaledit" class="modal">
+			<div class="modal-content">
+	  			<span onclick="document.getElementById('modaledit').style.display='none'" class="close" title="Close Modal">&times;</span>
+	  			<div class="container">
+	  				Select Habit :
+	  				<select id="Habitselect" onchange="edithabitchange()">
+
+	  				</select><br><br>
+					Description : <input type="text" id="EditHabitDescription"><br><br>
+					Type :  
+							<br><input type="radio" name="type" value="Positive"> Positive<br>
+							<input type="radio" name="type" value="Negative"> Negative<br><br>		
+			  		Days : 	
+			  				Monday<input type="checkbox" name="DaysHabit" value="Monday">
+							Tuesday<input type="checkbox" name="DaysHabit" value="Tuesday">
+							Wednesday<input type="checkbox" name="DaysHabit" value=Wednesday">
+							Thursday<input type="checkbox" name="DaysHabit" value="Thursday">
+							Friday<input type="checkbox" name="DaysHabit" value="Friday">
+							Saturday<input type="checkbox" name="DaysHabit" value="Saturday">
+							Sunday<input type="checkbox" name="DaysHabit" value="Sunday"><br><br>
+				<button type="button" onclick="document.getElementById('modaledit').style.display='none'" class="cancelbtn">Cancel</button>
+    			<button type="button" onclick="editHabit()" class="signupbtn">Edit</button>
+    			<button type="button" onclick="deleteHabit()" class="signupbtn">Delete</button><br><br>
+				</div>
+			</div>
+		</div>
+		
 
 
-		<h3>Set a reminder</h3>
+		<!--<h3>Set a reminder</h3>
 		<form>
-			Description:<input type="text" name="HabitDescription"><br><br>
-			  		Days : 	Monday<input type="checkbox" name="DaysReminder" id="Monday">
-							Tuesday<input type="checkbox" name="DaysReminder" id="Tuesday">
-							Wednesday<input type="checkbox" name="DaysReminder" id="Wednesday">
-							Thursday<input type="checkbox" name="DaysReminder" id="Thursday">
-							Friday<input type="checkbox" name="DaysReminder" id="Friday">
-							Saturday<input type="checkbox" name="DaysReminder" id="Saturday">
-							Sunday<input type="checkbox" name="DaysReminder" id="Sunday"><br><br>
+			Name : <input type="text" id="ReminderName"><br><br>
+			Description : <input type="text" id="ReminderDescription"><br><br>
+			  		Days : 	Monday<input type="checkbox" name="DaysReminder" value="Monday">
+							Tuesday<input type="checkbox" name="DaysReminder" value="Tuesday">
+							Wednesday<input type="checkbox" name="DaysReminder" value="Wednesday">
+							Thursday<input type="checkbox" name="DaysReminder" value="Thursday">
+							Friday<input type="checkbox" name="DaysReminder" value="Friday">
+							Saturday<input type="checkbox" name="DaysReminder" value="Saturday">
+							Sunday<input type="checkbox" name="DaysReminder" value="Sunday"><br><br>
+					Time : <input type="time" id="ReminderTime"><br><br>
 			<input type="button" onclick="newReminder()" value="Create">
-		</form>
+		</form> -->
 
 
 </html>
