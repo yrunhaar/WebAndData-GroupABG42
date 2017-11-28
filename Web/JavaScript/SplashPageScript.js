@@ -1,6 +1,6 @@
 function signin(){
-	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
+	var email = document.getElementById("myemail").value;
+	var password = document.getElementById("mypassword").value;
 	var signinboolean = false;
 
 	if (signinboolean) {
@@ -9,6 +9,15 @@ function signin(){
 	else{
 		alert("Email/Password combination doesn't exist.");
 	}
+}
+
+function myFunction() {
+    var pass = document.getElementById("mypassword");
+    if (pass.type = "password") {
+        pass.type = "text";
+    } else {
+        pass.type = "password";
+    }
 }
 
 function signup(){

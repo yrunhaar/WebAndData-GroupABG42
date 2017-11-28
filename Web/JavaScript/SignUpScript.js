@@ -1,34 +1,33 @@
 var firstname;
 var surname;
 var birthday;
-var birthmonth;
-var birthyear;
 var gender;
 var email1;
 var email2;
 var password1;
 var password2;
 
+
+
 function newaccount(){
 	firstname = document.getElementById("firstname").value;
 	surname = document.getElementById("surname").value;
 	birthday = document.getElementById("birthday").value;
-	birthmonth = document.getElementById("birthmonth").value;
-	birthyear = document.getElementById("birthyear").value;
-	var radios = document.getElementsByNames("gender");
-	for (var i = 0, length = radios.length; i < length; i++){
-		if (radios[i].checked){
-			gender = radios[i];
-		}
-	}
 	email1 = document.getElementById("email1").value;
 	email2 = document.getElementById("email2").value;
 	password1 = document.getElementById("password1").value;
 	password2 = document.getElementById("password2").value;
-
-	var signupboolean = true;
+	var signupboolean = true
 	
-	if (firstname == null || surname == null || gender == null || email1 == null || email2 == null || password1 == null || password2 == null) {
+	var radios = document.getElementsByName('sex');
+	for(var i = 0; i < radios.length; i++){
+		if(radios[i].checked){
+			gender = radios[i];
+			break;
+		}
+	}
+
+	if (firstname.value == undefined || surname.value == undefined || gender.value == undefined || email1.value == undefined || email2.value == undefined || password1.value == undefined || password2.value == undefined) {
 		alert("Please fill in everything");
 		signupboolean = false;
 	}else{

@@ -1,14 +1,13 @@
-function logout(){
-	window.location.href = "SplashPage.html";
+var modal1 = document.getElementById('myModal');
+
+function newhabitmodal(){
+	modal.style.display = 'block';
 }
 
-function account(){
-	window.location.href = "Account.html";
-}
-
-function faq(){
-	window.location.href = "FAQ.html";
-}
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
 
 function newHabit(){
 
