@@ -1,9 +1,6 @@
-function signin(){
-	var email = document.getElementById("myemail").value;
-	var password = document.getElementById("mypassword").value;
-	var signinboolean = false;
+function signIn(form){
 
-	if (signinboolean) {
+	if (form.EmailId.value == "123@123" && form.PasswordId.value == "passwd") {
 		window.location.href = "Tracker.html";
 	}
 	else{
@@ -19,11 +16,19 @@ function myFunction() {
         pass.type = "password";
     }
 }
+function showPass(form){
+	if (form.PasswordId.type == 'password'){
+		form.PasswordId.setAttribute('type','text');
+	}
+	else{
+		form.PasswordId.setAttribute('type','password');
+	}
+}
 
-function signup(){
+function signUp(){
 	window.location.href = "SignUp.html";
 }
 
-function forgotpass(){
-	
+function forgotPass(){
+	window.location.href = "SignUp.html";
 }

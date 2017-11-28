@@ -11,16 +11,16 @@
 
 		<h2>SIGN IN</h2>
 		<form>
-			Your e-mail : <input placeholder="e-mail" type="Email" id="myemail"><br><br>
-			Password : <input placeholder="password" type="password" id="mypassword"><br>
-			<input type="checkbox" onclick="showpass()">Show Password<br><br>
-			<input type="button" onclick="signin()" value="Sign In">
-			<input type="button" onclick="forgotpass()" value="Forgot Password">
+			Your e-mail : <input placeholder="e-mail" type="email" name="EmailId"><br><br>
+			Password : <input placeholder="password" type="password" name="PasswordId"><br>
+			<input type="checkbox" onclick="showPass(this.form)">Show Password<br><br>
+			<input type="button" onclick="signIn(this.form)" value="Sign In">
+			<input type="button" onclick="forgotPass()" value="Forgot Password">
 		</form><br><br>
 
 		<h2>OR JOIN US</h2>
 		<form>
-			<input type="button" onclick="signup()" value="Sign Up">
+			<input type="button" onclick="signUp()" value="Sign Up">
 		</form>
 	</body>
 
