@@ -15,18 +15,20 @@
 
 		<h2>SIGN UP</h2>
 		<form>
-			First Name : <input type="text" id="firstname">
-			Surname : <input type="text" id="surname"><br><br>
-			Date of birth : <input type="date" id="birthday"><br><br>
-			Gender :
-						<br><input type="radio" name="sex" value="0"> Male<br>
-  						<input type="radio" name="sex" value="1"> Female<br>
-  						<input type="radio" name="sex" value="2"> Other<br><br>
-			Your e-mail : <input type="email" id="email1"><br><br>
-			Confirm e-mail : <input type="email" id="email2"><br><br>
-			Password : <input type="password" id="password1"> (Must be 6-20 characters long)<br><br>
-			Confirm password : <input type="password" id="password2"><br><br>
-			<input type="submit" onclick="newaccount()" value="SIGN UP">
+			First Name : <input type="text" id="firstname" name="1stname">
+			Surname : <input type="text" id="surname" name="surName"><br><br>
+			Date of birth : <input type="date" id="birthday" name="dob"><br><br>
+			Gender :<br>
+					
+						<input type="radio" name="Gender" value="Male" checked> Male<br>
+  						<input type="radio" name="Gender" value="Female"> Female<br>
+  						<input type="radio" name="Gender" value="Other"> Other<br><br>
+  					
+			Your e-mail : <input type="email" id="email1" name="Email1"><br><br>
+			Confirm e-mail : <input type="email" id="email2" name="Email2"><br><br>
+			Password : <input type="password" id="password1" name="Password1"> (Must be 6-20 characters long)<br><br>
+			Confirm password : <input type="password" id="password2" name="Password2"><br><br>
+			<input type="button" onclick="newaccount(this.form)" value="SIGN UP">
 		</form><br><br>
 
 	</body>
