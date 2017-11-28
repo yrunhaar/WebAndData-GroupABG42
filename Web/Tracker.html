@@ -27,13 +27,13 @@
 					Description:<input type="text" name="HabitDescription"><br><br>
 					Type :  <br><input type="radio" name="type" value="Positive"> Positive<br>
 							<input type="radio" name="type" value="Negative"> Negative<br><br>		
-			  		Days : 	Monday<input type="checkbox" name="Days" 		id="Monday">
-							Tuesday<input type="checkbox" name="Days" id="Tuesday">
-							Wednesday<input type="checkbox" name="Days" id="Wednesday">
-							Thursday<input type="checkbox" name="Days" id="Thursday">
-							Friday<input type="checkbox" name="Days" id="Friday">
-							Saturday<input type="checkbox" name="Days" id="Saturday">
-							Sunday<input type="checkbox" name="Days" id="Sunday">
+			  		Days : 	Monday<input type="checkbox" name="DaysHabit" 		id="Monday">
+							Tuesday<input type="checkbox" name="DaysHabit" id="Tuesday">
+							Wednesday<input type="checkbox" name="DaysHabit" id="Wednesday">
+							Thursday<input type="checkbox" name="DaysHabit" id="Thursday">
+							Friday<input type="checkbox" name="DaysHabit" id="Friday">
+							Saturday<input type="checkbox" name="DaysHabit" id="Saturday">
+							Sunday<input type="checkbox" name="DaysHabit" id="Sunday">
 				</div>	
 				<div class="clearfix"> 
 				<button type="button" onclick="document.getElementById('myModal').style.display='none'" class="cancelbtn">Cancel</button>
@@ -50,14 +50,14 @@
 		<h3>Set a reminder</h3>
 		<form>
 			Description:<input type="text" name="HabitDescription"><br><br>
-			<button>Monday</button>
-			<button>Tuesday</button>
-			<button>Wednesday</button>
-			<button>Thursday</button>
-			<button>Friday</button>
-			<button>Saturday</button>
-			<button>Sunday</button><br><br>
-			<input type="submit" value="Create">
+			  		Days : 	Monday<input type="checkbox" name="DaysReminder" id="Monday">
+							Tuesday<input type="checkbox" name="DaysReminder" id="Tuesday">
+							Wednesday<input type="checkbox" name="DaysReminder" id="Wednesday">
+							Thursday<input type="checkbox" name="DaysReminder" id="Thursday">
+							Friday<input type="checkbox" name="DaysReminder" id="Friday">
+							Saturday<input type="checkbox" name="DaysReminder" id="Saturday">
+							Sunday<input type="checkbox" name="DaysReminder" id="Sunday"><br><br>
+			<input type="button" onclick="newReminder()" value="Create">
 		</form>
 
 

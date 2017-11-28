@@ -12,3 +12,7 @@ window.onclick = function(event) {
 function newHabit(){
 
 }
+
+function newReminder(){
+	
+}
