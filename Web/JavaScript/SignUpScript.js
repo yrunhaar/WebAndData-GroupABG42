@@ -33,34 +33,35 @@ function newaccount(form){
 	console.log(radios);
 	console.log(signupboolean);
 	//alert(".....");
-	if (firstname == null || surname == null || birthday == null || radios == null || email1 == null || email2 == null || password1 == null || password2 == null || firstname == undefined || surname == undefined || birthday == undefined || radios == undefined || email1 == undefined || email2 == undefined || password1 == undefined || password2 == undefined) {
+	if (firstname == "" || surname == "" || birthday == "" || email1 == "" || email2 == "" || password1 == "" || password2 == "") {
 		alert("Please fill in everything");
 		signupboolean = false;
 	}
-	alert(".....");
-	if(email1 != email2){
-		alert("The confirmed E-MAIL adress is not equal to your E-MAIL");
-		signupboolean = false;
-	/*	}else{
-			if (true) {
-				EMAIL NOT VALID OR USED
-				signupboolean = false;
+	//alert(".....");
+	else{
+		if(email1 != email2){
+			alert("The confirmed E-MAIL adress is not equal to your E-MAIL");
+			signupboolean = false;
+		/*	}else{
+				if (true) {
+					EMAIL NOT VALID OR USED
+					signupboolean = false;
+				}*/
+		}
+
+		if(password1 != password2){
+			alert("The confirmed Password is not equal to Password");
+			signupboolean = false;
+		}
+			/*else{
+				if(password1.length < 6 || password1.length > 20){
+					alert("Password must be 6-20 characters long")
+					signupboolean = false;
+				}
 			}*/
 	}
 
-	if(password1 != password2){
-		alert("The confirmed Password is not equal to Password");
-		signupboolean = false;
-	}
-		/*else{
-			if(password1.length < 6 || password1.length > 20){
-				alert("Password must be 6-20 characters long")
-				signupboolean = false;
-			}
-		}*/
-	
-
-	if ((firstname != null || surname != null || birthday != null || radios !=null || email1 != null || email2 != null || password1 != null || password2 !=null || firstname != undefined || surname != undefined || birthday != undefined || radios != undefined || email1 != undefined || email2 != undefined || password1 != undefined || password2 != undefined)) {
+	if (signupboolean) {
 		alert("you did it!!")
 	}
 }
