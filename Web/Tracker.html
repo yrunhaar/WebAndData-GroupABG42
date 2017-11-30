@@ -27,6 +27,9 @@
 		    <th>Days</th>
 		  </tr>
 		</table><br><br>
+		<button id="newHabitbutton" onclick="sorthabits()">Sort Habits</button>
+
+		<h3>Manage Habits</h3>
 
 		<button id="newHabitbutton" onclick="newhabitmodal()">Add a habit</button>
 		<div id="modaladd" class="modal">
@@ -47,12 +50,11 @@
 							Saturday<input type="checkbox" name="DaysHabit" value="Saturday">
 							Sunday<input type="checkbox" name="DaysHabit" value="Sunday"><br><br>
 				<button type="button" onclick="document.getElementById('modaladd').style.display='none'" class="cancelbtn">Cancel</button>
-    			<button type="button" onclick="newHabit()" class="signupbtn">Sign Up</button>
+    			<button type="button" onclick="newHabit()" class="signupbtn">Add Habit</button>
 				</div>
 			</div>
-		</div>
+		</div><br><br>
 
-		<h3>Manage Habits</h3>
 		<button id="newHabitbutton" onclick="edithabitmodal()">Edit a habit</button>
 		<div id="modaledit" class="modal">
 			<div class="modal-content">

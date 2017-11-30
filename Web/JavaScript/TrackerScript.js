@@ -25,7 +25,7 @@ function getCheckedBoxes(checkboxName) {
   var checkboxesChecked = [];
   for (var i=0; i<checkboxes.length; i++) {
      if (checkboxes[i].checked) {
-        checkboxesChecked.push(checkboxes[i]);
+        checkboxesChecked.push(checkboxes[i].value);
      }
   }
   return checkboxesChecked;
@@ -36,7 +36,7 @@ var HabitTable = document.getElementById("HabitTable");
 function updateHabitTable(){
 	for (var i = 0; i < HabitCollection.length; i++){
 		var array = HabitCollection[i];
-		var row = table.insertRow(0);
+		var row = HabitTable.insertRow(0);
 		var cell1 = row.insertCell(0);
 		cell1.innerHTML = array[0];
 		var cell2 = row.insertCell(1);
@@ -53,21 +53,31 @@ var description;
 var type;
 var Days;
 function newHabit(){
-	alert("great");
-	name = document.getElementbyId("HabitName");
-	description = document.getElementById("HabitDescription");
-	var radios = document.getElementsbyName("type");
-	for(var i = 0; i < radios.length; i++){
-		if(radios[i].checked){
-			type = radios[i];
-			break;
+	name = document.getElementById("HabitName").value;
+	description = document.getElementById("HabitDescription").value;
+	var radios = document.getElementsByName("type");
+	if(radios != undefined){
+		for(var i = 0; i < radios.length; i++){
+			if(radios[i].checked){
+				type = radios[i].value;
+				break;
+			}
 		}
 	}
 	Days = getCheckedBoxes("DaysHabit");
+	console.log(name);
+	console.log(description);
+	console.log(type);
+	console.log(Days);
+	if (name == "" || description == "" || type == undefined || Days == undefined) {
+		alert("Please fill in the whole form when adding a Habit");
+	}else{
 	var Habit = [];
 	Habit.push(name, description, type, Days);
 	HabitCollection.push(Habit);
+	console.log(HabitCollection[0]);
 	updateHabitTable();
+	}
 }
 
 /*function newReminder(){
@@ -75,7 +85,7 @@ function newHabit(){
 }*/
 
 function selectboxesEditHabit(){
-	var select = document.getElementbyId("Habitselect");
+	var select = document.getElementById("Habitselect");
 	for(var i =0; i < HabitCollection.length; i++){
 		var temp = HabitCollection[i];
 		select.options[select.options.length] = new Option(temp[0], i);
@@ -85,7 +95,7 @@ function selectboxesEditHabit(){
 function edithabitchange(){
 	var selectededithabit = document.getElementById("Habitselect").value;
 	var edithabit = HabitCollection[selectededithabit]
-	document.getElementbyId("EditHabitDescription").value = edithabit[1];
+	document.getElementById("EditHabitDescription").value = edithabit[1];
 }
 
 
