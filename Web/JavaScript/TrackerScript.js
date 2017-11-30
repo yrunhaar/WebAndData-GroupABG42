@@ -32,11 +32,10 @@ function getCheckedBoxes(checkboxName) {
 }
 
 var HabitCollection = [];
-var HabitTable = document.getElementById("HabitTable");
-function updateHabitTable(){
-	for (var i = 0; i < HabitCollection.length; i++){
-		var array = HabitCollection[i];
-		var row = HabitTable.insertRow(0);
+var HabitTableCounter = 0;
+function updateHabitTable(array){
+		var HabitTable = document.getElementById("HabitTable");
+		var row = HabitTable.insertRow(1);
 		var cell1 = row.insertCell(0);
 		cell1.innerHTML = array[0];
 		var cell2 = row.insertCell(1);
@@ -45,7 +44,6 @@ function updateHabitTable(){
 		cell3.innerHTML = array[2];
 		var cell4 = row.insertCell(3);
 		cell4.innerHTML = array[3];
-	}
 }
 
 var name;
@@ -76,7 +74,8 @@ function newHabit(){
 	Habit.push(name, description, type, Days);
 	HabitCollection.push(Habit);
 	console.log(HabitCollection[0]);
-	updateHabitTable();
+	updateHabitTable(Habit);
+	selectboxesEditHabit(Habit);
 	}
 }
 
@@ -84,12 +83,9 @@ function newHabit(){
 	
 }*/
 
-function selectboxesEditHabit(){
+function selectboxesEditHabit(Habit){
 	var select = document.getElementById("Habitselect");
-	for(var i =0; i < HabitCollection.length; i++){
-		var temp = HabitCollection[i];
-		select.options[select.options.length] = new Option(temp[0], i);
-	}
+	select.options[select.options.length] = new Option(Habit[0], 0);
 }
 
 function edithabitchange(){
