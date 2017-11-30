@@ -33,27 +33,43 @@ function getCheckedBoxes(checkboxName) {
 
 var HabitCollection = [];
 var HabitTableCounter = 0;
-function updateHabitTable(array){
+function updateHabitTable(Habit, rownumber){
 		var HabitTable = document.getElementById("HabitTable");
-		var row = HabitTable.insertRow(1);
+		var row = HabitTable.insertRow(rownumber);
 		var cell1 = row.insertCell(0);
-		cell1.innerHTML = array[0];
+		cell1.innerHTML = Habit.getname();
 		var cell2 = row.insertCell(1);
-		cell2.innerHTML = array[1];
+		cell2.innerHTML = Habit.getdescription();
 		var cell3 = row.insertCell(2);
-		cell3.innerHTML = array[2];
+		cell3.innerHTML = Habit.gettype();
 		var cell4 = row.insertCell(3);
-		cell4.innerHTML = array[3];
+		cell4.innerHTML = Habit.getDays();
 }
 
-var name;
-var description;
-var type;
-var Days;
+function Habit(name, description, type, Days){
+	this.name = name;
+	this.description = description;
+	this.type = type;
+	this.Days = Days;
+
+	this.getname = function(){return this.name};
+	this.getdescription = function(){return this.description};
+	this.gettype = function(){return this.type};
+	this.getDays = function(){return this.Days};
+
+	this.setname = function(a){this.name = a};
+	this.setdescription = function(a){this.description = a};
+	this.settype = function(a){this.type = a};
+	this.setDays = function(a){this.Days = a}; 
+}
+
+
+var HabitCounter = 0;
 function newHabit(){
-	name = document.getElementById("HabitName").value;
-	description = document.getElementById("HabitDescription").value;
+	var name = document.getElementById("HabitName").value;
+	var description = document.getElementById("HabitDescription").value;
 	var radios = document.getElementsByName("type");
+	var type;
 	if(radios != undefined){
 		for(var i = 0; i < radios.length; i++){
 			if(radios[i].checked){
@@ -62,7 +78,7 @@ function newHabit(){
 			}
 		}
 	}
-	Days = getCheckedBoxes("DaysHabit");
+	var Days = getCheckedBoxes("DaysHabit");
 	console.log(name);
 	console.log(description);
 	console.log(type);
@@ -70,12 +86,13 @@ function newHabit(){
 	if (name == "" || description == "" || type == undefined || Days == undefined) {
 		alert("Please fill in the whole form when adding a Habit");
 	}else{
-	var Habit = [];
-	Habit.push(name, description, type, Days);
-	HabitCollection.push(Habit);
+	var habit1 = new Habit(name, description, type, Days);
+	HabitCollection.push(habit1);
 	console.log(HabitCollection[0]);
-	updateHabitTable(Habit);
-	selectboxesEditHabit(Habit);
+	var rownumber = HabitCounter+1;
+	updateHabitTable(habit1, rownumber);
+	selectboxesEditHabit(habit1);
+	HabitCounter++;
 	}
 }
 
@@ -85,13 +102,53 @@ function newHabit(){
 
 function selectboxesEditHabit(Habit){
 	var select = document.getElementById("Habitselect");
-	select.options[select.options.length] = new Option(Habit[0], 0);
+	select.options[select.options.length] = new Option(Habit.getname(), HabitCounter);
 }
 
 function edithabitchange(){
-	var selectededithabit = document.getElementById("Habitselect").value;
-	var edithabit = HabitCollection[selectededithabit]
-	document.getElementById("EditHabitDescription").value = edithabit[1];
+	var selectededithabit = HabitCollection[document.getElementById("Habitselect").value];
+	console.log(selectededithabit);
+	document.getElementById("EditHabitDescription").value = selectededithabit.getdescription();
+	var radios = document.getElementsByName("edittype");
+	for (var i = 0; i<radios.length; i++) {
+		if(radios[i].value == selectededithabit.gettype()){
+			radios[i].checked = true;
+			break;
+		}
+	}
+}
+
+function editHabit(){
+	var selectededithabit = HabitCollection[document.getElementById("Habitselect").value];
+	selectededithabit.setdescription(document.getElementById("EditHabitDescription").value);
+	var radios = document.getElementsByName("edittype");
+	if(radios != undefined){
+		for(var i = 0; i < radios.length; i++){
+			if(radios[i].checked){
+				console.log('che')
+				console.log(radios[i].value)
+				selectededithabit.settype(radios[i].value);
+				break;
+			}
+		}
+	}
+	selectededithabit.setDays(getCheckedBoxes("EditDaysHabit"));
+	var rownumber = parseInt(document.getElementById("Habitselect").value) + 1;
+	document.getElementById("HabitTable").deleteRow(rownumber);
+	updateHabitTable(selectededithabit, rownumber);
+	console.log('new')
+	console.log(selectededithabit)
+	HabitCollection[document.getElementById("Habitselect").value] = selectededithabit;
+	selectboxesEditHabit(selectededithabit);
+	document.getElementById("Habitselect").remove(document.getElementById("Habitselect").value);
+}
+
+function deleteHabit(){
+	var selectededithabit = HabitCollection[document.getElementById("Habitselect").value];
+	var rownumber = parseInt(document.getElementById("Habitselect").value) + 1;
+	document.getElementById("HabitTable").deleteRow(rownumber);
+	HabitCollection[document.getElementById("Habitselect").value] = null;
+	document.getElementById("Habitselect").remove(document.getElementById("Habitselect").value);
 }
 
 
