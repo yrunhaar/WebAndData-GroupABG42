@@ -1,16 +1,17 @@
+//modal to create new habit
 var modal1 = document.getElementById('modaladd');
-
 function newhabitmodal(){
 	modal1.style.display = 'block';
 
 }
 
+//modal to edit a hebit
 var modal2 = document.getElementById('modaledit');
-
 function edithabitmodal(){
 	modal2.style.display = 'block';
 }
 
+//close modal
 window.onclick = function(event) {
     if (event.target == modal1) {
         modal1.style.display = "none";
@@ -20,6 +21,7 @@ window.onclick = function(event) {
     }
 }
 
+//fct to get the values of all the checked boxes
 function getCheckedBoxes(checkboxName) {
   var checkboxes = document.getElementsByName(checkboxName);
   var checkboxesChecked = [];
@@ -31,8 +33,11 @@ function getCheckedBoxes(checkboxName) {
   return checkboxesChecked;
 }
 
+
 var HabitCollection = [];
 var HabitTableCounter = 0;
+
+//fct to update habit table
 function updateHabitTable(Habit, rownumber){
 		var HabitTable = document.getElementById("HabitTable");
 		var row = HabitTable.insertRow(rownumber);
@@ -46,6 +51,7 @@ function updateHabitTable(Habit, rownumber){
 		cell4.innerHTML = Habit.getDays();
 }
 
+//Object : Habit
 function Habit(name, description, type, Days){
 	this.name = name;
 	this.description = description;
@@ -63,8 +69,9 @@ function Habit(name, description, type, Days){
 	this.setDays = function(a){this.Days = a}; 
 }
 
-
 var HabitCounter = 0;
+
+//fct to create new habit
 function newHabit(){
 	var name = document.getElementById("HabitName").value;
 	var description = document.getElementById("HabitDescription").value;
@@ -88,7 +95,7 @@ function newHabit(){
 	}else{
 	var habit1 = new Habit(name, description, type, Days);
 	HabitCollection.push(habit1);
-	console.log(HabitCollection[0]);
+	console.log(HabitCollection[0]};
 	var rownumber = HabitCounter+1;
 	updateHabitTable(habit1, rownumber);
 	selectboxesEditHabit(habit1);
@@ -100,11 +107,13 @@ function newHabit(){
 	
 }*/
 
+//fct to update select boxes when editing habit
 function selectboxesEditHabit(Habit){
 	var select = document.getElementById("Habitselect");
 	select.options[select.options.length] = new Option(Habit.getname(), HabitCounter);
 }
 
+//fct to update text when editing habit
 function edithabitchange(){
 	var selectededithabit = HabitCollection[document.getElementById("Habitselect").value];
 	console.log(selectededithabit);
@@ -118,6 +127,7 @@ function edithabitchange(){
 	}
 }
 
+//fct to submit edited habit
 function editHabit(){
 	var selectededithabit = HabitCollection[document.getElementById("Habitselect").value];
 	selectededithabit.setdescription(document.getElementById("EditHabitDescription").value);
@@ -143,6 +153,7 @@ function editHabit(){
 	document.getElementById("Habitselect").remove(document.getElementById("Habitselect").value);
 }
 
+//fct to delete a habit
 function deleteHabit(){
 	var selectededithabit = HabitCollection[document.getElementById("Habitselect").value];
 	var rownumber = parseInt(document.getElementById("Habitselect").value) + 1;
