@@ -20,6 +20,32 @@ h2{
     font-size: 40px;
     color: #33ccff;
 }
+h2#A::after{
+	background-color: grey;
+	border: 1px solid;
+	padding: 1px;
+	font-size: 80%;
+	margin-left: 40px;
+	content: "NOW";
+}
+h2#A{
+	-webkit-animation-duration: 5s;
+	-webkit-animation-name: contentToLeft;
+	top: 5px; right: 5px;
+}
+@-webkit-keyframes contentToLeft{
+	from{
+		top: 5px; right: 5px;
+		background-color: grey;
+	}
+	50%{
+		background-color: gold;
+	}
+	to{
+		top: 5px; right: 255px;
+		background-color: blue;
+	}
+}
 nav a:active{
 	background-color: red;
 }
