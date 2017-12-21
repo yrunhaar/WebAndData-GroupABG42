@@ -1,0 +1,20 @@
+body{
+  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+  background: white;
+  color: #fff;
+  padding: 50px;
+  margin: 0;
+}
+div{
+display: block;
+  width: 100%;
+  padding: 15px;
+  border: 1px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  background: white;
+  color: #000;
+}

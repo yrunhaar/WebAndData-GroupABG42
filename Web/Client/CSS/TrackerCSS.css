@@ -1,0 +1,154 @@
+/*Title*/
+h2{
+    width: 100%;
+    clear: left;
+    font-family: Arial Narrow, sans-serif;
+    font-stretch: expanded;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+    color: #33ccff;
+}
+
+/*table*/
+table {
+    border: 1px solid #33ccff;
+    width: 80%;
+    float: left;
+    font-family: Arial Narrow, sans-serif;
+    font-stretch: expanded;
+}
+th{
+    background-color: #00ffff;
+    height: 50px;
+    font-size: 20px;
+}
+tr{
+    background-color: #ccffff;
+    text-align: text-bottom;
+}
+tr:hover {
+    background-color: #ffffff;
+}
+
+
+
+/*modal*/
+.modal {
+    display: none;
+    overflow: auto;
+    position: fixed;
+    z-index:1;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    font-family: Arial Narrow, sans-serif;
+    font-stretch: expanded;
+}
+.modal-header {
+    padding: 2px 2px;
+    background-color: #00ffff;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 20px;
+    color: red;
+}
+.modal-body {
+    padding: 2px 16px;
+    background-color: #ccffff;
+}
+/* Modal Content */
+.modal-content {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+
+/*add a habit button*/
+#newHabitbutton{
+    text-align: center;
+    background-color: #00ace6;
+    color: white;
+    font-size: 20px;
+    width: 20%;
+    float: right;
+
+}
+#newHabitbutton:hover {
+    background-color: #33ccff;
+}
+
+
+
+/*edit a habit button*/
+#editHabitbutton{
+    text-align: center;
+    background-color: #00ace6;
+    color: white;
+    font-size: 20px;
+    width: 20%;
+    float: right;
+
+}
+#editHabitbutton:hover {
+    background-color: #33ccff;
+}
+
+
+
+/*delete a habit button*/
+#deleteHabitbutton{
+    text-align: center;
+    background-color: #cc0000;
+    color: white;
+    font-size: 20px;
+    width: 10%;
+    float: right;
+
+}
+#deleteHabitbutton:hover {
+    background-color: #ff3333;
+}
+
+
+
+/*completed a habit button*/
+#completedHabitbutton{
+    text-align: center;
+    background-color: #29a329;
+    font-size: 20px;
+    width: 10%;
+    float: right;
+}
+#completedHabitbutton:hover {
+    background-color: #5cd65c;
+}
+
+
+
+/*trackerblock*/
+#trackerblock{
+    width: 100%;
+    background-color: #e6f9ff;
+    float: left;
+    border: 1px solid #33ccff;
+}

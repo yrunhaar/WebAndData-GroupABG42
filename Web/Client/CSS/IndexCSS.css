@@ -1,0 +1,57 @@
+
+body{
+	position: sticky;
+
+
+}
+.inOut{
+	margin-bottom: 100px;
+	position: static;
+	background-color: #ccffff;
+	border: 1px solid #33ccff;
+}
+h2{
+    width: 100%;
+    clear: left;
+    font-family: Arial Narrow, sans-serif;
+    font-stretch: expanded;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+    color: #33ccff;
+}
+nav a:active{
+	background-color: red;
+}
+input{
+	
+    
+    font-family: Arial Narrow, sans-serif;
+	font-stretch: expanded;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #33ccff;
+}
+#form{
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	/*margin:25px 50px 75px 100px;*/
+}
+#button{
+	background-color:#33ccff;
+	color: white;
+	font-family: Arial Narrow, sans-serif;
+	font-stretch: expanded;
+	font-size: 30px;
+	text-align: center;
+	vertical-align: text-bottom;
+}
+#button:hover{
+	background-color: #00ace6;
+}
+#button:active{
+	border: 1px dashed;
+	background-color: red;
+}

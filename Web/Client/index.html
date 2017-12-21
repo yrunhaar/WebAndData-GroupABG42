@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Your Habits - SIGN IN</title>
+		<link rel="stylesheet" href="CSS\IndexCSS.css">
+		<link rel="stylesheet" href="CSS\DefaultCSS.css">
+		<script src="JavaScript\indexScript.js"></script>
+	</head>
+
+	<body>
+		<div class="block" id="headblock">
+			<h1>Your Habits</h1>
+			<img id="logo" src="Images/Logo.png" alt="our logo">
+			<nav>
+		 	<a href="FAQ.html">FAQ</a>
+	 		</nav><br><br><br><br>
+	 	</div>
+
+	 	<div class="inOut">
+			<h2>SIGN IN</h2>
+			<form id="form">
+				Your e-mail : <input placeholder="e-mail" type="email" name="EmailId"><br><br>
+				Password : <input placeholder="password" type="password" name="PasswordId"><br>
+				<input type="checkbox" onclick="showPass(this.form)">Show Password<br><br>
+				<input id="button" type="button" onclick="signIn(this.form)" value="Sign In">
+				<input id="button" type="button" onclick="forgotPass()" value="Forgot Password">
+				</form><br><br>
+
+				<h2>OR JOIN US</h2>
+			<form id="form">
+				<input id="button" type="button" onclick="signUp()" value="Sign Up">
+			</form><br><br>
+		</div>
+	</body>
+
+</html>

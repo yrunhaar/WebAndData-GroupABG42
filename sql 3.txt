@@ -1,0 +1,108 @@
+-- 1
+ -- select * from habit_list
+-- where owner = 1;
+
+
+-- 2
+ -- select * from habit
+-- where habit_list_id = 1;
+
+
+-- 3 
+-- select * from habit
+-- where habit_list_id = 4
+-- limit 1,2;
+
+
+-- 4
+ --  -- A
+-- select title, frequency_id , frequency.name from habit
+-- join  frequency on habit.frequency_id = frequency.id
+-- where frequency.name like "DAILY";
+
+
+	-- B
+-- select habit.title , habit_list.id, habit_list.isPublic from habit
+-- join habit_list on habit.habit_list_id = habit_list.id
+-- where isPublic is false;
+
+
+	-- C
+-- select habit.title , habit_done.timestamp , habit_done.habit_id from habit
+--  inner join habit_done on habit.id = habit_done.habit_id
+--  where habit_done.timestamp > "2017-10-30 20:34:04";
+
+
+-- 5
+ -- select habit.title, habit.id , habit_list_id , habit_list.id as list_id, user.id as user_id from habit 
+-- join habit_list on habit.habit_list_id = habit_list.id 
+-- left join user on habit_list.owner = user.id
+-- where user.name like "user%";
+
+
+-- 6
+ -- select habit.title, habit.id , habit_day_of_week.day_of_week_id, day_of_week.name as day_name from habit
+--  join habit_day_of_week on habit.id = habit_day_of_week.habit_id
+--  join day_of_week on habit_day_of_week.day_of_week_id = day_of_week.id
+-- where habit.title like "Finish Homework";
+ 
+-- 7
+ -- select day_of_week.name as day_name, habit_day_of_week.day_of_week_id, habit.title , habit.id as habit_id , habit_list.id as list_id from day_of_week
+-- join  habit_day_of_week on day_of_week.id = habit_day_of_week.day_of_week_id
+-- join habit on habit_day_of_week.habit_id = habit.id
+-- join habit_list on habit.habit_list_id = habit_list.id
+-- where day_of_week.name like "MONDAY";
+
+-- 8
+ -- select day_of_week.name as day_name , habit.title,habit.id , habit_done.habit_id, habit_done.timestamp, count(habit.id) from day_of_week
+-- join habit_day_of_week on day_of_week.id = habit_day_of_week.day_of_week_id
+-- left join habit on habit_day_of_week.habit_id = habit.id
+-- join habit_done on habit.id = habit_done.habit_id
+-- where day_of_week.name like "MONDAY"
+-- group by habit.title;
+
+
+-- 9 
+-- select week(habit_done.timestamp ) as each_week, habit_done.timestamp, habit_done.habit_id,count(habit_done.timestamp) from habit_done
+-- group by each_week;
+
+
+-- 10
+-- select habit.title ,habit_done.timestamp ,week(habit_done.timestamp )as each_week ,  MIN(habit_done.timestamp) ,MAX(habit_done.timestamp)  
+-- from habit
+-- join habit_done on habit.id = habit_done.habit_id
+-- group by habit.title 
+-- having  DATEDIFF(MAX(habit_done.timestamp), MIN(habit_done.timestamp)) > 14 ORDER BY DATEDIFF(MAX(habit_done.timestamp), MIN(habit_done.timestamp))
+-- limit 5;
+
+
+-- 11
+-- select habit_list.id , habit.title , habit_done.timestamp ,  avg(habit_list.id ) from habit_list 
+-- join habit on habit_list.id = habit.habit_list_id
+-- join habit_done on habit.id = habit_done.habit_id
+-- where habit_list.id = 3;
+
+
+
+-- 12
+-- select habit_list.id , habit.title , habit_done.timestamp ,  avg(habit_list.id ) from habit_list 
+-- join habit on habit_list.id = habit.habit_list_id
+-- join habit_done on habit.id = habit_done.habit_id
+-- where habit_list.id = 3;
+
+
+-- group by habit_list.id;
+
+
+-- 13
+-- select habit_list.id , habit.title , habit_done.timestamp,count(habit_list.id ) as num ,
+-- avg(habit_list.id ) / count(habit_list.id )as hh ,avg(habit.id)  from habit_list 
+-- join habit on habit_list.id = habit.habit_list_id
+-- join habit_done on habit.id = habit_done.habit_id
+-- where habit_list.id = 3
+-- group by habit.title
+-- having avg(habit.id) > hh
+-- 
+ 
+
+
