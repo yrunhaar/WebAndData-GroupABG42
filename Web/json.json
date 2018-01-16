@@ -1,1 +1,1 @@
-[{"id":0,"name":"Teeth","description":"Brush Teeth","type":"Positive","Days":"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday","Status":"Yes"},{"id":1,"name":"Shower","description":"Take a shower","type":"Positive","Days":"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday","Status":"No"}]
+[{"id":0,"name":"Teeth","description":"this is a test","type":"Positive","Days":"Friday","Status":"Yes"},{"id":1,"name":"Shower","description":"Take a shower","type":"Positive","Days":"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday","Status":"Yes"}]

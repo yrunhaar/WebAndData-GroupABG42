@@ -29,7 +29,7 @@ var reload = function (){
 	}
 	main();
 };
-setInterval(reload, 2000);
+setInterval(reload, 5000);
 		
 
 //fct to get the values of all the checked boxes
