@@ -32,8 +32,8 @@ app.get("/getHabitListOfUser", function(req, res){
 	var sql = "select * from habit_list where owner = 1";
   	con.query(sql, function(err, result){
   		if (err) throw err;
-  		console.log("query completed");
-  		res.json("result");
+  		console.log("query 1 completed");
+  		res.json(result);
   	})
 });
 
@@ -42,7 +42,7 @@ app.get("/listHabitofList", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -51,7 +51,7 @@ app.get("/listHabitofListLimit", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -60,7 +60,7 @@ app.get("/getFilterFreq", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -69,7 +69,7 @@ app.get("/getFilterPublic", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -78,7 +78,7 @@ app.get("/getFilterDate", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -87,7 +87,7 @@ app.get("/getHabitOfUser", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -96,7 +96,7 @@ app.get("/getDaysOfHabit", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -105,7 +105,7 @@ app.get("/getHabitOfDay", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -114,16 +114,16 @@ app.get("/getCompletedOfDay", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
 app.get("/getCompletedInWeek", function(req, res){
-	var sql = "select week(habit_done.timestamp ) as each_week, habit_done.timestamp, habit_done.habit_id,count(habit_done.timestamp) from habit_done group by each_week";
+	var sql = "select week(habit_done.timestamp ) as each_week, habit_done.timestamp, habit_done.habit_id,count(habit_done.timestamp) as number from habit_done group by each_week";
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -132,7 +132,7 @@ app.get("/getTopFive", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -141,16 +141,16 @@ app.get("/getFreqCoOccurence", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
 app.get("/getAverageCompletion", function(req, res){
-	var sql = "select habit_list.id , habit.title , habit_done.timestamp ,  avg(habit_list.id ) from habit_list join habit on habit_list.id = habit.habit_list_id join habit_done on habit.id = habit_done.habit_id where habit_list.id = 3 group by habit_list.id";
+	var sql = "select habit_list.id , habit.title , habit_done.timestamp ,  avg(habit_list.id ) as average from habit_list join habit on habit_list.id = habit.habit_list_id join habit_done on habit.id = habit_done.habit_id where habit_list.id = 3 group by habit_list.id";
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });
 
@@ -159,6 +159,6 @@ app.get("/getHabitCompletedMore", function(req, res){
   	con.query(sql, function(err, result){
   		if (err) throw err;
   		console.log("query completed");
-  		res.json("result");
+  		res.json(result);
   	})
 });

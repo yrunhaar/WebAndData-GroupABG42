@@ -2,7 +2,6 @@
 var express = require("express");
 var url = require("url");
 var http = require("http");
-var fs = require('fs');
 var app;
 
 var port = process.argv[2];
@@ -84,13 +83,6 @@ function Habit(id, name, description, type, Days, Status){
 
 var HabitCollection = [];
 
-/*var json = fs.readFileSync('json.json', 'utf8');
-var array = JSON.parse(json);
-	for (var i = 0; i < array.length; i++) {
-		var habit = new Habit(array[i].id, array[i].name, array[i].description, array[i].type, array[i].Days, array[i].Status);
-		HabitCollection.push(habit);
-	}*/
-
 
 app.get("/getHabitCollection", function(req,res){
 	res.json(HabitCollection);
@@ -107,14 +99,11 @@ app.get("/addHabit", function(req, res){
 		HabitCollection.push(habit);
 		console.log(HabitCollection);
 		res.end("Habit added succesfully");
-		JsonString = JSON.stringify(HabitCollection);
-		console.log(JsonString);
 		var sqladd = "INSERT INTO habits (id, name, description, type, days, status) VALUES ('"+HabitCounter+"', '"+query["name"]+"', '"+query["description"]+"', '"+query["type"]+"', '"+query["Days"]+"', '"+query["Status"]+"')";
 		con.query(sqladd, function (err, result){
 			if(err) throw err;
 			console.log("Habit added to DB");
 		});
-		fs.writeFileSync('json.json', JsonString);
 	}
 });
 
@@ -129,15 +118,11 @@ app.get("/editHabit", function(req, res){
 		habit.settype(query["type"]);
 	}
 	habit.setDays(query["Days"]);
-
-	JsonString = JSON.stringify(HabitCollection);
-	console.log(JsonString);
 	var sqlupdate = "UPDATE habits SET description = '"+query["description"]+"', type = '"+type+"', days = '"+query["Days"]+"' WHERE id = '"+id+"'";
 	con.query(sqlupdate, function (err, result){
 		if (err) throw err;
 		console.log("Habit updated from DB");
 	});
-	fs.writeFileSync('json.json', JsonString);
 });
 
 app.get("/completedHabit", function(req, res){
@@ -146,14 +131,11 @@ app.get("/completedHabit", function(req, res){
 	var id = query["id"];
 	var habit = HabitCollection[id];
 	habit.setStatus("Yes");
-	JsonString = JSON.stringify(HabitCollection);
-	console.log(JsonString);
 	var sqlcompleted = "UPDATE habits SET status = 'Yes' WHERE id = '"+id+"'";
 	con.query(sqlcompleted, function (err, result){
 		if (err) throw err;
 		console.log("Habit completed from DB");
 	});
-	fs.writeFileSync('json.json', JsonString);
 });
 
 app.get("/deleteHabit", function(req, res){
@@ -171,12 +153,9 @@ app.get("/deleteHabit", function(req, res){
 	}
 	console.log(copyarray);
 	HabitCollection = copyarray;
-	JsonString = JSON.stringify(HabitCollection);
-	console.log(JsonString);
 	var sqldelete = "DELETE FROM habits WHERE id = '"+id+"'";
 	con.query(sqldelete, function (err, result){
 		if (err) throw err;
 		console.log("Habit deleted from DB");
 	});
-	fs.writeFileSync('json.json', JsonString);
 });
