@@ -3,6 +3,7 @@ var express = require("express");
 var url = require("url");
 var http = require("http");
 var fs = require("fs");
+var ejs = require("ejs");
 
 var adding = require("./add");
 var editing = require("./edit");

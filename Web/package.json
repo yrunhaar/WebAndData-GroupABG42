@@ -1,0 +1,33 @@
+{
+  "name": "tud-wd-42",
+  "version": "1.0.0",
+  "description": "This is the package for our habit website, Mohammad and Yohan, group42",
+  "main": "tud-wd-42",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "write-json-file": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yrunhaar/WebAndData-GroupABG42.git"
+  },
+  "keywords": [
+    "webanddata",
+    "tudelft",
+    "yohan",
+    "mohammad"
+  ],
+  "author": "Mohammad and Yohan - group 42",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/yrunhaar/WebAndData-GroupABG42/issues"
+  },
+  "homepage": "https://github.com/yrunhaar/WebAndData-GroupABG42#readme"
+}

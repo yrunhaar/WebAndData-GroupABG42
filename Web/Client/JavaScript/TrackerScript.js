@@ -18,7 +18,7 @@ var main = function () {
 	}
 	$.getJSON("getHabitCollection", update);
 };
-window.onload = main;
+//window.onload = main;
 
 var reload = function (){
 	for (var i = 0; i < HabitCollection.length; i++) {
