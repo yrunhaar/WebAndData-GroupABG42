@@ -13,8 +13,13 @@
 	HabitCollection = copyarray;
 	return HabitCollection;
 }*/
-exports.sql = function(query){
+exports.sql1 = function(query){
 	var id = query["id"];
 	var sql = "DELETE FROM habits WHERE id = '"+id+"'";
+	return sql;
+}
+exports.sql2 = function(query){
+	var id = query["id"];
+	var sql = "UPDATE habits SET id = id - 1 WHERE id > '"+id+"'";
 	return sql;
 }

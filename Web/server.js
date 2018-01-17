@@ -169,9 +169,14 @@ app.get("/deleteHabit", function(req, res){
 	console.log(copyarray);
 	HabitCollection = copyarray;*/
 	/*HabitCollection = deleting.delete(HabitCollection, query);*/
-	var sqldelete = deleting.sql(query);
-	con.query(sqldelete, function (err, result){
+	var sqldelete1 = deleting.sql1(query);
+	con.query(sqldelete1, function (err, result){
 		if (err) throw err;
 		console.log("Habit deleted from DB");
+	});
+	var sqldelete2 = deleting.sql2(query);
+	con.query(sqldelete2, function (err, result){
+		if (err) throw err;
+		console.log("Habits id reorganised from DB");
 	});
 });
