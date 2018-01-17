@@ -2,6 +2,7 @@
 var express = require("express");
 var url = require("url");
 var http = require("http");
+var fs = require("fs");
 
 var adding = require("./add");
 var editing = require("./edit");
@@ -178,5 +179,37 @@ app.get("/deleteHabit", function(req, res){
 	con.query(sqldelete2, function (err, result){
 		if (err) throw err;
 		console.log("Habits id reorganised from DB");
+	});
+});
+
+
+
+app.get("/", function(req, res){
+	fs.readFile(__dirname+'/Client/index.html','utf8',function(err, text){
+		res.send(text)
+	});
+});
+
+app.get("/*T+r+a+c?k?e+r+*", function(req, res){
+	fs.readFile(__dirname+'/Client/Tracker.html','utf8',function(err, text){
+		res.send(text)
+	});
+});
+
+app.get("/*S+i+g+n+U+p+*", function(req, res){
+	fs.readFile(__dirname+'/Client/SignUp.html','utf8',function(err, text){
+		res.send(text)
+	});
+});
+
+app.get("/*A+c+c?o+u+n+t+*", function(req, res){
+	fs.readFile(__dirname+'/Client/Account.html','utf8',function(err, text){
+		res.send(text)
+	});
+});
+
+app.get("/*F+A+Q+*", function(req, res){
+	fs.readFile(__dirname+'/Client/FAQ.html','utf8',function(err, text){
+		res.send(text)
 	});
 });
