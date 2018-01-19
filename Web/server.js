@@ -209,10 +209,11 @@ app.get("/*S+i+g+n+U+p+*", function(req, res){
 	});
 });
 
-app.get("/*A+c+c?o+u+n+t+*", function(req, res){
-	fs.readFile(__dirname+'/Client/Account.html','utf8',function(err, text){
+app.get("/*A+c+c?o+u+n+t+*/:name", function(req, res){
+	/*fs.readFile(__dirname+'/Client/Account.html','utf8',function(err, text){
 		res.send(text)
-	});
+	});*/
+	res.render(__dirname+'/Client/Account.ejs', {name: req.params.name});
 });
 
 app.get("/*F+A+Q+*", function(req, res){
