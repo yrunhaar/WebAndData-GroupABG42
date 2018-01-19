@@ -14,7 +14,12 @@ var app;
 
 var port = process.argv[2];
 app = express();
+//set up template engine
+app.set('view engine', 'ejs');
+
+//static file
 app.use(express.static(__dirname + '/Client'));
+
 http.createServer(app).listen(port);
 
 
@@ -192,9 +197,10 @@ app.get("/", function(req, res){
 });
 
 app.get("/*T+r+a+c?k?e+r+*", function(req, res){
-	fs.readFile(__dirname+'/Client/Tracker.html','utf8',function(err, text){
+	/*fs.readFile(__dirname+'/Client/Tracker.ejs','utf8',function(err, text){
 		res.send(text)
-	});
+	});*/
+	res.render(__dirname+'/Client/Tracker.ejs', {array: HabitCollection});
 });
 
 app.get("/*S+i+g+n+U+p+*", function(req, res){

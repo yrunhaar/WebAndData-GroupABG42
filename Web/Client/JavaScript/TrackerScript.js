@@ -21,7 +21,7 @@ var main = function () {
 //window.onload = main;
 
 var reload = function (){
-	for (var i = 0; i < HabitCollection.length; i++) {
+	for (var i = 0; i < document.getElementById("HabitTable").rows.length; i++) {
 		document.getElementById("HabitselectEdit").options.length = 0;
 		document.getElementById("HabitselectDelete").options.length = 0;
 		document.getElementById("HabitselectCompleted").options.length = 0;

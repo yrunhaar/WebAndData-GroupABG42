@@ -34,6 +34,48 @@
 			    <th>Days</th>
 			    <th>&#9989</th>
 			  </tr>
+			  <% 	function Habit(id, name, description, type, Days, Status){
+						this.id = id;
+						this.name = name;
+						this.description = description;
+						this.type = type;
+						this.Days = Days;
+						this.Status = Status;
+
+
+						this.getid = function(){return this.id};
+						this.getname = function(){return this.name};
+						this.getdescription = function(){return this.description};
+						this.gettype = function(){return this.type};
+						this.getDays = function(){return this.Days};
+						this.getStatus = function(){return this.Status};
+
+						this.setid = function(a){this.id = a};
+						this.setname = function(a){this.name = a};
+						this.setdescription = function(a){this.description = a};
+						this.settype = function(a){this.type = a};
+						this.setDays = function(a){this.Days = a}; 
+						this.setStatus = function(a){this.Status = a};
+					}
+			  		var HabitCollection = []
+			  		for (var i = 0; i < array.length; i++) {
+						var habit = new Habit(array[i].id, array[i].name, array[i].description, array[i].type, array[i].Days, array[i].Status);
+						HabitCollection.push(habit);
+					}
+			  		for(var i=0; i < HabitCollection.length; i++){ %>
+			    <tr>
+			    	<td><%= HabitCollection[i].getname() %></td>
+			    	<td><%= HabitCollection[i].getdescription() %></td>
+			    	<td><%= HabitCollection[i].gettype() %></td>
+			    	<td><%= HabitCollection[i].getDays() %></td>
+			    	<td <% 	if (HabitCollection[i].getStatus() == "Yes") { %>
+								bgcolor = "#29a329">
+							<% }
+							else{ %>
+								bgcolor = '#cc0000'>
+							<% } %></td>
+			    </tr>
+			  <% }; %>
 			</table><br><br><br>
 
 			<button id="newHabitbutton" onclick="document.getElementById('modaladd').style.display='block'">Add a habit</button>
